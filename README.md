@@ -16,8 +16,10 @@ MCP позволяет AI-ассистентам (Claude, Cursor, VS Code Copilo
 - [Интеграция с 1С:Напарник](#интеграция-с-1снапарник)
 - [Интеграция с учётными системами](#интеграция-с-учётными-системами)
 - [Графовый анализ](#графовый-анализ)
-- [Оркестрация и инфраструктура](#оркестрация-и-инфраструктура)
+- [Инфраструктура и DevOps](#инфраструктура-и-devops)
+- [Оркестрация](#оркестрация)
 - [Наборы правил и скиллов](#наборы-правил-и-скиллов)
+- [Коммерческие продукты](#коммерческие-продукты)
 
 ---
 
@@ -206,6 +208,22 @@ MCP-сервер для анализа и форматирования кода 
 - Настраиваемые лимиты памяти JVM и конфигурация
 - Вывод в human-readable и структурированном JSON форматах
 
+### [mcp-bsl-lsp-bridge](https://github.com/SteelMorgan/mcp-bsl-lsp-bridge)
+
+LSP → MCP транслятор: даёт AI-агентам доступ к возможностям BSL Language Server — навигация по коду, поиск символов, диагностика (100+ проверок), рефакторинг, hover-подсказки.
+
+| | |
+|---|---|
+| **Язык** | — |
+| **Транспорт** | MCP |
+| **Требования** | BSL Language Server |
+
+**Возможности:**
+- Навигация по определениям и ссылкам
+- Диагностика кода (100+ проверок BSL LS)
+- Hover-подсказки и рефакторинг
+- Универсальный LSP→MCP мост (см. также [Tritlo/lsp-mcp](https://github.com/Tritlo/lsp-mcp) — generic вариант)
+
 ### [mcp-onec-test-runner (METR)](https://github.com/alkoleft/mcp-onec-test-runner)
 
 MCP-сервер для запуска YaXUnit-тестов и сборки проектов 1С из AI-ассистентов.
@@ -316,7 +334,38 @@ MCP-сервер для интеграции AI-ассистентов с 1С:Б
 
 ---
 
-## Оркестрация и инфраструктура
+## Инфраструктура и DevOps
+
+### [1c-log-checker](https://github.com/SteelMorgan/1c-log-checker)
+
+MCP-сервер для работы с журналом регистрации (ЖР) и технологическим журналом (ТЖ) 1С. Парсинг логов через ClickHouse + Grafana, MCP-доступ для AI-агента.
+
+| | |
+|---|---|
+| **Язык** | — |
+| **Транспорт** | MCP |
+| **Требования** | ClickHouse, Grafana, Docker |
+
+**Возможности:**
+- Парсинг и хранение ЖР и ТЖ в ClickHouse
+- Визуализация через Grafana
+- MCP-инструменты для чтения, создания и конфигурирования ТЖ
+- AI-агент анализирует логи и находит проблемы
+
+### [1c-ai-sandbox-client-server](https://github.com/SteelMorgan/1c-ai-sandbox-client-server)
+
+Docker-песочница для безопасной работы AI-агента с 1С. Полноценное окружение (клиент + сервер + веб-публикация + БД), изолированное от продуктивных данных.
+
+| | |
+|---|---|
+| **Язык** | Docker |
+| **Транспорт** | — |
+| **Требования** | Docker |
+
+**Возможности:**
+- Изолированная среда: AI не может повредить продуктивные данные
+- Полноценное 1С-окружение: клиент, сервер, веб, БД
+- Быстрое создание и удаление песочниц
 
 ### [compose4mcp](https://github.com/pravets/compose4mcp)
 
@@ -370,29 +419,65 @@ MCP-сервер для интеграции AI-ассистентов с 1С:Б
 
 ---
 
+## Коммерческие продукты
+
+### [OneMCP](https://onemcp.ru)
+
+SaaS-платформа с MCP-сервером, семантическим поиском по метаданным, коду и документации. Командная работа до 100 человек.
+
+| Тариф | Конфигурации | Хранение | Статус |
+|-------|-------------|----------|--------|
+| Free | 1 | 100 МБ | Бета (бесплатно) |
+| Basic | 5 | 1 ГБ | Бета (бесплатно) |
+| Pro | Расширенный | — | Бета (бесплатно) |
+
+> На февраль 2026 все тарифы бесплатны (бета).
+
+### [VibeCoding1C](http://vibecoding1c.ru)
+
+Коммерческий конструктор MCP-серверов для 1С без программирования. Также предлагает обучающие курсы.
+
+| Продукт | Стоимость |
+|---------|-----------|
+| Конструктор MCP-серверов | 9 000 руб. |
+| Курс по MCP серверам | 8 000 руб. |
+| Курс по вайбкодингу | 15 000 руб. |
+
+### [Infostart MCP](https://infostart.ru)
+
+MCP от Инфостарт для работы с метаданными конфигураций. Гибридный поиск (BM25), подключение к синтаксис-помощнику. Набор Docker-контейнеров для проверки синтаксиса, поиска по справке и метаданным.
+
+---
+
 ## Сводная таблица
 
-| Проект | Stars | Язык | Категория |
-|--------|-------|------|-----------|
-| [1c_mcp](https://github.com/vladimir-kharin/1c_mcp) | ~285 | 1C, Python | Фреймворк |
-| [cursor_rules_1c](https://github.com/comol/cursor_rules_1c) | ~163 | 1C, MD | Правила и скиллы |
-| [mcp-1c-v1](https://github.com/FSerg/mcp-1c-v1) | ~130 | TypeScript | RAG / метаданные |
-| [mcp-bsl-platform-context](https://github.com/alkoleft/mcp-bsl-platform-context) | ~129 | Kotlin | Справка платформы |
-| [EDT-MCP](https://github.com/DitriXNew/EDT-MCP) | ~104 | Java | IDE |
-| [mcp-onec-test-runner](https://github.com/alkoleft/mcp-onec-test-runner) | ~72 | Kotlin | Тестирование |
-| [1c-mcp-toolkit](https://github.com/ROCTUP/1c-mcp-toolkit) | ~56 | 1C, Python | Фреймворк |
-| [1C_MCP_metadata](https://github.com/artesk/1C_MCP_metadata) | ~50 | 1C, PS | Метаданные |
-| [1c-mcp-metacode](https://github.com/ROCTUP/1c-mcp-metacode) | ~48 | Python | Граф кода |
-| [1c-syntax-helper-mcp](https://github.com/Antonio1C/1c-syntax-helper-mcp) | ~43 | Python | Документация |
-| [1c-buddy](https://github.com/ROCTUP/1c-buddy) | ~39 | JS, Python | 1С:Напарник |
-| [bsl-graph](https://github.com/alkoleft/bsl-graph) | ~37 | Kotlin | Графовый анализ |
-| [spring-mcp-1c-copilot](https://github.com/SteelMorgan/spring-mcp-1c-copilot) | ~31 | Kotlin | 1С:Напарник |
-| [compose4mcp](https://github.com/pravets/compose4mcp) | ~30 | Docker | Инфраструктура |
-| [onec-help-mcp](https://github.com/rzateev/onec-help-mcp) | — | Python | Справка (RAG) |
-| [bsl-mcp](https://github.com/phsin/mcp-bsl-ls) | — | Python | Линтер BSL |
-| [1c-accounting-mcp](https://github.com/tarasov46/1c-accounting-mcp) | ~4 | Python, JS | Бухгалтерия |
-| [ARQA MCP Server](https://arqa.cc/ru/mcp-server) | — | Node.js | Коммерческий |
-| [OneRPA Suite](https://docs.onerpa.ru/mcp-servery-1c) | — | Docker | Набор серверов |
+| Проект | Stars | Категория | Цена |
+|--------|-------|-----------|------|
+| [1c_mcp](https://github.com/vladimir-kharin/1c_mcp) | ~285 | Фреймворк | Free |
+| [cursor_rules_1c](https://github.com/comol/cursor_rules_1c) | ~163 | Правила и скиллы | Free |
+| [mcp-1c-v1](https://github.com/FSerg/mcp-1c-v1) | ~130 | RAG / метаданные | Free |
+| [mcp-bsl-platform-context](https://github.com/alkoleft/mcp-bsl-platform-context) | ~129 | Справка платформы | Free |
+| [EDT-MCP](https://github.com/DitriXNew/EDT-MCP) | ~104 | IDE | Free |
+| [mcp-onec-test-runner](https://github.com/alkoleft/mcp-onec-test-runner) | ~72 | Тестирование | Free |
+| [1c-mcp-toolkit](https://github.com/ROCTUP/1c-mcp-toolkit) | ~56 | Фреймворк | Free |
+| [1C_MCP_metadata](https://github.com/artesk/1C_MCP_metadata) | ~50 | Метаданные | Free |
+| [1c-mcp-metacode](https://github.com/ROCTUP/1c-mcp-metacode) | ~48 | Граф кода | Free |
+| [1c-syntax-helper-mcp](https://github.com/Antonio1C/1c-syntax-helper-mcp) | ~43 | Документация | Free |
+| [1c-buddy](https://github.com/ROCTUP/1c-buddy) | ~39 | 1С:Напарник | Free |
+| [bsl-graph](https://github.com/alkoleft/bsl-graph) | ~37 | Графовый анализ | Free |
+| [spring-mcp-1c-copilot](https://github.com/SteelMorgan/spring-mcp-1c-copilot) | ~31 | 1С:Напарник | Free |
+| [compose4mcp](https://github.com/pravets/compose4mcp) | ~30 | Оркестрация | Free |
+| [1c-ai-sandbox](https://github.com/SteelMorgan/1c-ai-sandbox-client-server) | ~16 | Песочница | Free |
+| [onec-help-mcp](https://github.com/rzateev/onec-help-mcp) | — | Справка (RAG) | Free |
+| [mcp-bsl-lsp-bridge](https://github.com/SteelMorgan/mcp-bsl-lsp-bridge) | — | BSL LS мост | Free |
+| [bsl-mcp](https://github.com/phsin/mcp-bsl-ls) | — | Линтер BSL | Free |
+| [1c-log-checker](https://github.com/SteelMorgan/1c-log-checker) | — | Логи ЖР/ТЖ | Free |
+| [1c-accounting-mcp](https://github.com/tarasov46/1c-accounting-mcp) | ~4 | Бухгалтерия | Free |
+| [OneMCP](https://onemcp.ru) | — | SaaS-платформа | Бета (free) |
+| [ARQA MCP Server](https://arqa.cc/ru/mcp-server) | — | Бизнес-операции | Paid |
+| [OneRPA Suite](https://docs.onerpa.ru/mcp-servery-1c) | — | Набор серверов | Paid |
+| [VibeCoding1C](http://vibecoding1c.ru) | — | Конструктор | Paid |
+| [Infostart MCP](https://infostart.ru) | — | Метаданные | Paid |
 
 ---
 
