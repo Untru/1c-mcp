@@ -451,33 +451,40 @@ MCP от Инфостарт для работы с метаданными кон
 
 ## Сводная таблица
 
-| Проект | Stars | Категория | Цена |
-|--------|-------|-----------|------|
-| [1c_mcp](https://github.com/vladimir-kharin/1c_mcp) | ~285 | Фреймворк | Free |
-| [cursor_rules_1c](https://github.com/comol/cursor_rules_1c) | ~163 | Правила и скиллы | Free |
-| [mcp-1c-v1](https://github.com/FSerg/mcp-1c-v1) | ~130 | RAG / метаданные | Free |
-| [mcp-bsl-platform-context](https://github.com/alkoleft/mcp-bsl-platform-context) | ~129 | Справка платформы | Free |
-| [EDT-MCP](https://github.com/DitriXNew/EDT-MCP) | ~104 | IDE | Free |
-| [mcp-onec-test-runner](https://github.com/alkoleft/mcp-onec-test-runner) | ~72 | Тестирование | Free |
-| [1c-mcp-toolkit](https://github.com/ROCTUP/1c-mcp-toolkit) | ~56 | Фреймворк | Free |
-| [1C_MCP_metadata](https://github.com/artesk/1C_MCP_metadata) | ~50 | Метаданные | Free |
-| [1c-mcp-metacode](https://github.com/ROCTUP/1c-mcp-metacode) | ~48 | Граф кода | Free |
-| [1c-syntax-helper-mcp](https://github.com/Antonio1C/1c-syntax-helper-mcp) | ~43 | Документация | Free |
-| [1c-buddy](https://github.com/ROCTUP/1c-buddy) | ~39 | 1С:Напарник | Free |
-| [bsl-graph](https://github.com/alkoleft/bsl-graph) | ~37 | Графовый анализ | Free |
-| [spring-mcp-1c-copilot](https://github.com/SteelMorgan/spring-mcp-1c-copilot) | ~31 | 1С:Напарник | Free |
-| [compose4mcp](https://github.com/pravets/compose4mcp) | ~30 | Оркестрация | Free |
-| [1c-ai-sandbox](https://github.com/SteelMorgan/1c-ai-sandbox-client-server) | ~16 | Песочница | Free |
-| [onec-help-mcp](https://github.com/rzateev/onec-help-mcp) | — | Справка (RAG) | Free |
-| [mcp-bsl-lsp-bridge](https://github.com/SteelMorgan/mcp-bsl-lsp-bridge) | — | BSL LS мост | Free |
-| [bsl-mcp](https://github.com/phsin/mcp-bsl-ls) | — | Линтер BSL | Free |
-| [1c-log-checker](https://github.com/SteelMorgan/1c-log-checker) | — | Логи ЖР/ТЖ | Free |
-| [1c-accounting-mcp](https://github.com/tarasov46/1c-accounting-mcp) | ~4 | Бухгалтерия | Free |
-| [OneMCP](https://onemcp.ru) | — | SaaS-платформа | Бета (free) |
-| [ARQA MCP Server](https://arqa.cc/ru/mcp-server) | — | Бизнес-операции | Paid |
-| [OneRPA Suite](https://docs.onerpa.ru/mcp-servery-1c) | — | Набор серверов | Paid |
-| [VibeCoding1C](http://vibecoding1c.ru) | — | Конструктор | Paid |
-| [Infostart MCP](https://infostart.ru) | — | Метаданные | Paid |
+### Open Source
+
+| Проект | Stars | Категория |
+|--------|-------|-----------|
+| [1c_mcp](https://github.com/vladimir-kharin/1c_mcp) | ![Stars](https://img.shields.io/github/stars/vladimir-kharin/1c_mcp?style=flat&label=) | Фреймворк |
+| [cursor_rules_1c](https://github.com/comol/cursor_rules_1c) | ![Stars](https://img.shields.io/github/stars/comol/cursor_rules_1c?style=flat&label=) | Правила и скиллы |
+| [mcp-1c-v1](https://github.com/FSerg/mcp-1c-v1) | ![Stars](https://img.shields.io/github/stars/FSerg/mcp-1c-v1?style=flat&label=) | RAG / метаданные |
+| [mcp-bsl-platform-context](https://github.com/alkoleft/mcp-bsl-platform-context) | ![Stars](https://img.shields.io/github/stars/alkoleft/mcp-bsl-platform-context?style=flat&label=) | Справка платформы |
+| [EDT-MCP](https://github.com/DitriXNew/EDT-MCP) | ![Stars](https://img.shields.io/github/stars/DitriXNew/EDT-MCP?style=flat&label=) | IDE |
+| [mcp-onec-test-runner](https://github.com/alkoleft/mcp-onec-test-runner) | ![Stars](https://img.shields.io/github/stars/alkoleft/mcp-onec-test-runner?style=flat&label=) | Тестирование |
+| [1c-mcp-toolkit](https://github.com/ROCTUP/1c-mcp-toolkit) | ![Stars](https://img.shields.io/github/stars/ROCTUP/1c-mcp-toolkit?style=flat&label=) | Фреймворк |
+| [1C_MCP_metadata](https://github.com/artesk/1C_MCP_metadata) | ![Stars](https://img.shields.io/github/stars/artesk/1C_MCP_metadata?style=flat&label=) | Метаданные |
+| [1c-mcp-metacode](https://github.com/ROCTUP/1c-mcp-metacode) | ![Stars](https://img.shields.io/github/stars/ROCTUP/1c-mcp-metacode?style=flat&label=) | Граф кода |
+| [1c-syntax-helper-mcp](https://github.com/Antonio1C/1c-syntax-helper-mcp) | ![Stars](https://img.shields.io/github/stars/Antonio1C/1c-syntax-helper-mcp?style=flat&label=) | Документация |
+| [1c-buddy](https://github.com/ROCTUP/1c-buddy) | ![Stars](https://img.shields.io/github/stars/ROCTUP/1c-buddy?style=flat&label=) | 1С:Напарник |
+| [bsl-graph](https://github.com/alkoleft/bsl-graph) | ![Stars](https://img.shields.io/github/stars/alkoleft/bsl-graph?style=flat&label=) | Графовый анализ |
+| [spring-mcp-1c-copilot](https://github.com/SteelMorgan/spring-mcp-1c-copilot) | ![Stars](https://img.shields.io/github/stars/SteelMorgan/spring-mcp-1c-copilot?style=flat&label=) | 1С:Напарник |
+| [compose4mcp](https://github.com/pravets/compose4mcp) | ![Stars](https://img.shields.io/github/stars/pravets/compose4mcp?style=flat&label=) | Оркестрация |
+| [1c-ai-sandbox](https://github.com/SteelMorgan/1c-ai-sandbox-client-server) | ![Stars](https://img.shields.io/github/stars/SteelMorgan/1c-ai-sandbox-client-server?style=flat&label=) | Песочница |
+| [onec-help-mcp](https://github.com/rzateev/onec-help-mcp) | ![Stars](https://img.shields.io/github/stars/rzateev/onec-help-mcp?style=flat&label=) | Справка (RAG) |
+| [mcp-bsl-lsp-bridge](https://github.com/SteelMorgan/mcp-bsl-lsp-bridge) | ![Stars](https://img.shields.io/github/stars/SteelMorgan/mcp-bsl-lsp-bridge?style=flat&label=) | BSL LS мост |
+| [bsl-mcp](https://github.com/phsin/mcp-bsl-ls) | ![Stars](https://img.shields.io/github/stars/phsin/mcp-bsl-ls?style=flat&label=) | Линтер BSL |
+| [1c-log-checker](https://github.com/SteelMorgan/1c-log-checker) | ![Stars](https://img.shields.io/github/stars/SteelMorgan/1c-log-checker?style=flat&label=) | Логи ЖР/ТЖ |
+| [1c-accounting-mcp](https://github.com/tarasov46/1c-accounting-mcp) | ![Stars](https://img.shields.io/github/stars/tarasov46/1c-accounting-mcp?style=flat&label=) | Бухгалтерия |
+
+### Коммерческие
+
+| Проект | Категория | Цена |
+|--------|-----------|------|
+| [OneMCP](https://onemcp.ru) | SaaS-платформа | Бета (free) |
+| [ARQA MCP Server](https://arqa.cc/ru/mcp-server) | Бизнес-операции | Paid |
+| [OneRPA Suite](https://docs.onerpa.ru/mcp-servery-1c) | Набор серверов | Paid |
+| [VibeCoding1C](http://vibecoding1c.ru) | Конструктор | Paid |
+| [Infostart MCP](https://infostart.ru) | Метаданные | Paid |
 
 ---
 
