@@ -7,7 +7,7 @@
 MCP позволяет AI-ассистентам (Claude, Cursor, VS Code Copilot и др.) взаимодействовать с 1С: читать метаданные, запускать тесты, анализировать код, управлять базами и многое другое.
 
 > **Хотите добавить проект?** Смотрите [CONTRIBUTING.md](CONTRIBUTING.md) | [Открыть Issue](.github/ISSUE_TEMPLATE/new-server.yml) | [Changelog](CHANGELOG.md)
-
+>
 > **Что нового в мире MCP и Skills (август 2026):** протокол MCP выпустил спецификацию `2026-07-28` — stateless-ядро, фреймворк Extensions, вынесенные в расширения Tasks и MCP Apps, усиленная авторизация (issuer-bound креды, CIMD); Roots/Sampling/Logging помечены deprecated. Agent Skills с декабря 2025 — открытый кросс-платформенный стандарт [agentskills.io](https://agentskills.io), уже поддержанный Cursor, GitHub Copilot, OpenAI Codex и десятками других клиентов. В экосистеме 1С за это же время выросли собственные наборы skills для Claude Code и Cursor — см. [Наборы правил и скиллов](#наборы-правил-и-скиллов). Подробности — в [CHANGELOG.md](CHANGELOG.md).
 
 ---
