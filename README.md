@@ -52,6 +52,7 @@ MCP позволяет AI-ассистентам (Claude, Cursor, VS Code Copilo
 | Проверять BSL и запускать тесты | [bsl-analyzer](#bsl-analyzer), [bsl-mcp](#bsl-mcp), [mcp-bsl-lsp-bridge](#mcp-bsl-lsp-bridge), [mcp-onec-test-runner](#mcp-onec-test-runner-metr), [v8-runner](#v8-runner) |
 | Искать готовые шаблоны кода | [1c-templates-mcp](#1c-templates-mcp), [compose4mcp](#compose4mcp) |
 | Подключить учётные данные, каталоги и документы | [1c-rest-mcp](#1c-rest-mcp), [1c-accounting-mcp](#1c-accounting-mcp), [ARQA MCP Server](#arqa-mcp-server) |
+| Встроить агентскую петлю, RAG и MCP прямо в конфигурацию | [ИИкона (1c-ai-connector)](#иикона-1c-ai-connector) |
 | Агрегировать несколько клиентских сессий 1С | [v8-session-manager](#v8-session-manager) |
 | Подключить Codex и Claude к 1С-разработке через plugin и skills | [Unica](#unica), [ai_rules_1c](#ai_rules_1c), [claude-code-skills-1c](#claude-code-skills-1c), [1C: Platform Tools Skills](#1c-platform-tools-skills) |
 | Работать с облачной платформой 1С:Element | [elemctl](#elemctl), [xbsl](#xbsl) |
@@ -182,7 +183,7 @@ MCP-обёртка над LSP, REST API или другим протоколом
 |-----------|---------|
 | stdio | mcp-1c, 1c-mcp-metacode, rlm-tools-bsl, bsl-analyzer, bsl-mcp, mcp-onec-test-runner, v8-runner, mcp-bsl-platform-context, 1C_MCP_metadata, 1c-rest-mcp, 1c-accounting-mcp, elemctl |
 | SSE | EDT-MCP, mcp-bsl-platform-context, 1c-templates-mcp, spring-mcp-1c-copilot, http1c, 1c-ai-mcp |
-| Streamable HTTP | EDT-MCP, mcp-1c-v1, rlm-tools-bsl, 1c-rest-mcp, http1c, v8-runner, v8-session-manager, 1c-ai-mcp |
+| Streamable HTTP | EDT-MCP, mcp-1c-v1, rlm-tools-bsl, 1c-rest-mcp, http1c, v8-runner, v8-session-manager, 1c-ai-mcp, 1c-ai-connector |
 | HTTP (generic или legacy) | 1c_mcp, 1c-mcp-toolkit, CodePilot1C, 1c-syntax-helper-mcp, ARQA MCP Server |
 
 ### По платформе 1С
@@ -193,6 +194,7 @@ MCP-обёртка над LSP, REST API или другим протоколом
 | 8.3.10+ | mcp-onec-test-runner |
 | 8.3.18+ | ARQA MCP Server |
 | 8.3.20+ | mcp-bsl-platform-context |
+| 8.3.24+ | 1c-ai-connector |
 | 8.3.27.x | Unica (для операций, которым требуется запуск 1С) |
 | 8.3+ (общее) | mcp-1c, 1c_mcp, 1C_MCP_metadata, v8-runner |
 | Не требуется | 1c-mcp-metacode, rlm-tools-bsl, mcp-1c-v1, bsl-analyzer (CLI, LSP и offline MCP), bsl-mcp, mcp-bsl-lsp-bridge, 1c-rest-mcp, bsl-graph, onec-help-mcp |
@@ -204,7 +206,7 @@ MCP-обёртка над LSP, REST API или другим протоколом
 | Docker | mcp-1c-v1, onec-help-mcp, 1c-syntax-helper-mcp, 1c-buddy, compose4mcp, 1c-ai-sandbox, OneRPA Suite |
 | JDK 17+ | EDT-MCP, CodePilot1C, mcp-bsl-platform-context, mcp-onec-test-runner, bsl-graph |
 | Neo4j | 1c-mcp-metacode |
-| Qdrant | mcp-1c-v1, onec-help-mcp |
+| Qdrant | mcp-1c-v1, onec-help-mcp, 1c-ai-connector (опционально) |
 | BSL Language Server | bsl-mcp, mcp-bsl-lsp-bridge |
 | Node.js | 1c-rest-mcp, ARQA MCP Server |
 | Python | 1c_mcp (прокси), 1c-mcp-toolkit (прокси), 1c-mcp-metacode, rlm-tools-bsl, bsl-mcp, 1c-templates-mcp, onec-help-mcp |
@@ -656,6 +658,25 @@ MCP-сервер для работы с опубликованным REST API 1�
 - Конфигурируемый base URL и Basic Auth
 - Запуск через `npx`
 
+### [ИИкона (1c-ai-connector)](https://github.com/andromanpro/1c-ai-connector)
+
+Расширение конфигурации для интеграции LLM в 1С:Предприятие. Полноценная ИИ-платформа поверх коннектора: агентская петля с function calling, RAG по базе знаний, MCP-сервер для внешних агентов, мониторинг ошибок с ИИ-диагнозом и генератор диаграмм. Устанавливается как расширение, основную конфигурацию не меняет.
+
+| | |
+|---|---|
+| **Язык** | 1C Enterprise |
+| **Транспорт** | Streamable HTTP (JSON-RPC 2.0) |
+| **Требования** | 1С:Предприятие 8.3.24+, БСП 3.1.10+; опционально Qdrant, kroki, rlm-tools-bsl |
+| **Статус** | ✅ Active |
+
+**Возможности:**
+- Агентская петля (function calling) — единый формат под 5 провайдеров: OpenAI, Anthropic, Google, DeepSeek, GigaChat, Yandex и OpenAI-совместимые
+- RAG — база знаний с авточанкингом, эмбеддингами на Qdrant и политиками egress для защиты конфиденциальных данных
+- MCP-сервер — HTTP JSON-RPC 2.0 с Basic Auth, rate limiting, whitelisting запросов и аудит-логом
+- Мониторинг ошибок — сбор логов, дедупликация, ИИ-диагноз, алерты в Telegram, аудит кода с указанием места
+- Генератор диаграмм — текст в mermaid/plantuml/graphviz/BPMN
+- 398 unit-тестов, рейтинги A/A в SonarQube
+
 ### [ARQA MCP Server](https://arqa.cc/ru/mcp-server)
 
 Коммерческий on-premise MCP-сервер для интеграции AI-моделей с учётными системами 1С. Поддерживает работу с документами, отчётами и данными.
@@ -1014,6 +1035,7 @@ MCP от Инфостарт для работы с метаданными кон
 | [v8-runner](https://github.com/alkoleft/v8-runner-rust) | ![Stars](https://img.shields.io/github/stars/alkoleft/v8-runner-rust?style=flat&label=) | Локальный workflow и DevOps | 🚧 |
 | [1c-log-checker](https://github.com/SteelMorgan/1c-log-checker) | ![Stars](https://img.shields.io/github/stars/SteelMorgan/1c-log-checker?style=flat&label=) | Логи ЖР/ТЖ | 🚧 |
 | [1c-rest-mcp](https://github.com/theYahia/1c-rest-mcp) | ![Stars](https://img.shields.io/github/stars/theYahia/1c-rest-mcp?style=flat&label=) | REST API | ✅ |
+| [1c-ai-connector (ИИкона)](https://github.com/andromanpro/1c-ai-connector) | ![Stars](https://img.shields.io/github/stars/andromanpro/1c-ai-connector?style=flat&label=) | ИИ-платформа: агенты, RAG, MCP | ✅ |
 | [1c-accounting-mcp](https://github.com/tarasov46/1c-accounting-mcp) | ![Stars](https://img.shields.io/github/stars/tarasov46/1c-accounting-mcp?style=flat&label=) | Бухгалтерия | 🔬 |
 
 ### Коммерческие
