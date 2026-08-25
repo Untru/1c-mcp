@@ -181,7 +181,7 @@ MCP-обёртка над LSP, REST API или другим протоколом
 
 | Транспорт | Серверы |
 |-----------|---------|
-| stdio | mcp-1c, 1c-mcp-metacode, rlm-tools-bsl, bsl-analyzer, bsl-mcp, mcp-onec-test-runner, v8-runner, mcp-bsl-platform-context, 1C_MCP_metadata, 1c-rest-mcp, 1c-accounting-mcp, elemctl |
+| stdio | mcp-1c, 1c-mcp-metacode, rlm-tools-bsl, bsl-analyzer, bsl-mcp, mcp-onec-test-runner, v8-runner, mcp-bsl-platform-context, 1C_MCP_metadata, 1c-rest-mcp, 1c-accounting-mcp, elemctl, one-s-mcp |
 | SSE | EDT-MCP, mcp-bsl-platform-context, 1c-templates-mcp, spring-mcp-1c-copilot, http1c, 1c-ai-mcp |
 | Streamable HTTP | EDT-MCP, mcp-1c-v1, rlm-tools-bsl, 1c-rest-mcp, http1c, v8-runner, v8-session-manager, 1c-ai-mcp, 1c-ai-connector |
 | HTTP (generic или legacy) | 1c_mcp, 1c-mcp-toolkit, CodePilot1C, 1c-syntax-helper-mcp, ARQA MCP Server |
@@ -992,6 +992,32 @@ SaaS-платформа с MCP-сервером, семантическим по
 
 MCP от Инфостарт для работы с метаданными конфигураций. Гибридный поиск (BM25), подключение к синтаксис-помощнику. Набор Docker-контейнеров для проверки синтаксиса, поиска по справке и метаданным.
 
+### [one-s-mcp](https://onesmcp.ru)
+
+Настольное приложение и набор MCP-серверов: разбирает XML-выгрузку конфигурации и расширений, строит семантический указатель и граф связей локально на машине разработчика и отдаёт их ИИ-помощнику. Код и метаданные не покидают периметр — наружу уходят только запросы встроенного агента к нейросети на ключе пользователя.
+
+| | |
+|---|---|
+| **Язык** | Python (серверы), Rust + TypeScript (приложение) |
+| **Транспорт** | stdio |
+| **Требования** | Windows 10/11, XML-выгрузка конфигурации; инфраструктура не нужна — ни Docker, ни СУБД, ни отдельный Python. Опционально ускорение на видеокарте NVIDIA |
+| **Статус** | 🚧 Beta — открытая бета, все возможности бесплатны |
+
+**Возможности:**
+- Семантический поиск по коду и метаданным конфигурации
+- Граф вызовов с точностью до процедуры или функции модуля
+- Анализ влияния изменений с учётом перехватов расширений
+- Справка платформы и справочник БСП с реальными сигнатурами методов
+- Проверка кода: 190 диагностик, 95 привязаны к стандартам разработки 1С
+- Сравнение конфигураций с учётом расширений, отчёт в PDF, Word и Excel
+- Построение управляемых форм, обработок и расширений
+
+Автонастройка подключения для Claude Code, Codex, Cursor, VS Code, OpenCode и Hermes Agent. Страница продукта: [github.com/timetodel/onesmcp](https://github.com/timetodel/onesmcp). Разработчик — ООО «Бином».
+
+| Тариф | Условия |
+|-------|---------|
+| Открытая бета | Все возможности бесплатны, нужен аккаунт с подтверждённой почтой |
+
 ---
 
 ## Сводная таблица
@@ -1047,6 +1073,7 @@ MCP от Инфостарт для работы с метаданными кон
 | [OneRPA Suite](https://docs.onerpa.ru/mcp-servery-1c) | Набор серверов | Paid |
 | [VibeCoding1C](http://vibecoding1c.ru) | Конструктор | Paid |
 | [Infostart MCP](https://infostart.ru) | Метаданные | Paid |
+| [one-s-mcp](https://onesmcp.ru) | Метаданные и код | Бета (free) |
 
 ---
 
