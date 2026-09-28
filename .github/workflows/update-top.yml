@@ -1,0 +1,35 @@
+name: Update Top by Stars
+
+on:
+  schedule:
+    - cron: '0 6 * * 1' # каждый понедельник в 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-top:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Rebuild top table
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/update_top.py
+
+      - name: Commit changes
+        run: |
+          if git diff --quiet README.md; then
+            echo "Топ не изменился"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898333+github-actions[bot]@users.noreply.github.com"
+          git commit -am "chore: обновлён топ по звёздам"
+          git push

@@ -2,6 +2,28 @@
 
 Все изменения в каталоге MCP-серверов для 1С.
 
+## [2026-09-28]
+
+### Изменено
+
+- README переписан: вместо карточек-таблиц и дублирующих матриц — короткие человеческие описания «что это и зачем» (1100 → ~520 строк). Убраны матрицы совместимости, архитектурные паттерны и сводная таблица: стек, транспорт и требования теперь в одной строке под каждым проектом
+- Наверху README — **топ-15 по звёздам**, который пересобирается автоматически каждый понедельник (`scripts/update_top.py` + workflow `update-top.yml`)
+- Новый шаблон записи в CONTRIBUTING.md
+- `1c-rest-mcp` переименован автором в `aprovodka` (34 инструмента поверх OData)
+- Обновлены описания EDT-MCP (импорт/выгрузка `.cf`/`.cfe`, v2.18) и 1C: Platform Tools MCP (запросы через OData, v0.3)
+- Помечены проекты без обновлений 9+ месяцев: bsl-graph, compose4mcp, 1C_MCP_metadata, bsl-mcp, mcp-1c-v1, 1c-accounting-mcp
+
+### Добавлено
+
+- Новый раздел **UI-тестирование и агент в интерфейсе**: `1C Testpilot` (ROCTUP) — MCP к клиенту тестирования 1С без Vanessa; `qa-mcp` — Gherkin-сценарии на протоколе TestManager/TestClient
+- Skills: `cc-1c-skills` (самый звёздный 1С-AI-репозиторий на GitHub), `1c-ai-dev-env`, `xbsl-ai-skills` (1С:Элемент 10.0)
+- EDT: `edt-bridge`, `AI-EDT`, `1C_EDT_MCP_PUBLIC`; редактор `BslEdit`
+- Код и метаданные: `code-index-mcp`, `bsl-atlas`
+- Справка: `bsl-context`, `mcp-bsl-platform-help-context`
+- Проверка кода: `1c-lsp-mcp-skill`, бенчмарк LLM для BSL `PRISM`
+- Живая база: `onec-client-mcp-devkit`; данные: `mcp-rsv-data`, `INFATON MCP35`
+- Коммерческие: `Pilot 1C` (Инфостарт), `My1cMCP`
+
 ## [2026-08-25] (3)
 
 ### Добавлено
