@@ -416,6 +416,8 @@ Docker · 🔬 ![stars](https://img.shields.io/github/stars/SteelMorgan/1c-ai-sa
 
 Docker Compose · ✅ ![stars](https://img.shields.io/github/stars/pravets/compose4mcp?style=flat&label=%E2%AD%90)
 
+<a id="1celement"></a>
+
 ### 1C:Element
 
 Облачная платформа 1С ([1cmycloud.com](https://1cmycloud.com)) с языком XBSL. Инструменты ниже неофициальные и с 1С не аффилированы.
