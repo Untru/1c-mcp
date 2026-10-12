@@ -170,6 +170,13 @@ BSL · WebTransport · 🚧 ![stars](https://img.shields.io/github/stars/1c-neur
 
 Rust · HTTP · 🚧 ![stars](https://img.shields.io/github/stars/1c-neurofish/v8-session-manager?style=flat&label=%E2%AD%90)
 
+#### [ones-mcp](https://ones-mcp.aiai.bizml.ru/)
+
+**Служба Windows: подключает MCP-клиенты к живой базе 1С:Предприятие 8.3.**
+Некоммерческий бесплатный инструмент: устанавливается как служба Windows (`setupOnesMCP.exe`), не требует доработки конфигурации и расширений — запросы выполняются платформой `1cv8.exe ENTERPRISE /Execute` через встроенный .epf. Три инструмента: `list_bases`, `list_platforms`, `run_query` — запросы языка запросов 8.3 только на чтение (ВЫБРАТЬ), лимит строк результата. Подходит, когда нужно подключить Claude, Cursor или Cherry Studio к живой базе 8.3 (ERP, Бухгалтерия, УТ, ЗУП, КА) и посмотреть данные, не дорабатывая конфигурацию.
+
+Windows · HTTP · 8.3 · ✅
+
 ### Метаданные и анализ кода
 
 #### [mcp-1c](https://github.com/feenlace/mcp-1c)
